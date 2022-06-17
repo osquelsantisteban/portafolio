@@ -4,20 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Porfolio's Osquel</title>
 
+    <!-- Alpine -->
     <script
       defer
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
     ></script>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Carrusel -->
+    <script>
+      const items = [
+    {
+        position: 0,
+        el: document.getElementById('carousel-item-1')
+    },
+    {
+        position: 1,
+        el: document.getElementById('carousel-item-2')
+    },
+    {
+        position: 2,
+        el: document.getElementById('carousel-item-3')
+    },
+    {
+        position: 3,
+        el: document.getElementById('carousel-item-4')
+    },
+];
+
+const options = {
+    activeItemPosition: 1,
+    interval: 3000,
+    
+    indicators: {
+        activeClasses: 'bg-white dark:bg-gray-800',
+        inactiveClasses: 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+        items: [
+            {
+                position: 0,
+                el: document.getElementById('carousel-indicator-1')
+            },
+            {
+                position: 1,
+                el: document.getElementById('carousel-indicator-2')
+            },
+            {
+                position: 2,
+                el: document.getElementById('carousel-indicator-3')
+            },
+            {
+                position: 3,
+                el: document.getElementById('carousel-indicator-4')
+            },
+        ]
+    },
+    
+    // callback functions
+    onNext: () => {
+        console.log('next slider item is shown');
+    },
+    onPrev: ( ) => {
+        console.log('previous slider item is shown');
+    },
+    onChange: ( ) => {
+        console.log('new slider item has been shown');
+    }
+};
+    </script>
   </head>
   <body>
-    <main class="flex flex-col gap-3">
-
-
+    <main class="flex flex-col gap-10">
       <!-- Nav -->
       <section class="">
         <nav
@@ -26,15 +88,15 @@
           <div
             class="container flex flex-wrap justify-between items-center mx-auto"
           >
-            <a href="https://flowbite.com" class="flex items-center">
+            <a href="http://portafolio.test" class="flex items-center">
               <img
-                src="/docs/images/logo.svg"
+                src="img/o.jpg"
                 class="mr-3 h-6 sm:h-9"
                 alt="Flowbite Logo"
               />
-              <span
+              <h1
                 class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-                >Flowbite</span
+                >Porfolio's Osquel</h1
               >
             </a>
             <button
@@ -76,8 +138,8 @@
               >
                 <li>
                   <a
-                    href="#"
-                    class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                    href="http://portafolio.test"
+                    class="block py-2 pr-4 pl-3 text-white bg-amber-400 rounded md:bg-transparent md:text-amber-400 md:p-0 dark:text-white"
                     aria-current="page"
                     >Home</a
                   >
@@ -117,36 +179,168 @@
       </section>
 
       <!-- Header -->
-      <section class="flex flex-col items-center justify-center relative">
-        <h1 class="text-3xl font-bold underline my-5">Porfolio's Osquel!</h1>
+      <header class="flex flex-col items-center justify-center relative">
         <img class="h-2/4" src="img/header.png" alt="header" />
-      </section>
+      </header>
 
-      <!-- Parallax -->
-      <section
-        class="overscroll-contain flex items-center justify-center h-screen bg-cover"
-      >
-        <div
-          class="bg-fixed bg-cover h-80 sm:h-56 md:h-56 bg-gray-700 w-full"
-          style="background-image: url('img/parallax.jpg')"
-        >
-          <p class="text-lg text-slate-500 text-justify m-5 p-3">
-            Hola mi nombre es Osquel y soy Ingeniero Informático, he trabajado
-            con diversas areas de la tecnología desde desarrollo web,
-            administracion de red y he dirigido equipos, pero lo que mas me
-            gusta hacer es desarrollo web.
-          </p>
-          <p class="text-lg text-slate-500 text-justify m-5 p-3">
-            <a href="about.html" class="text-lg text-slate-500"
-              >Read More ...</a
+      <!-- Carrusel -->
+      <section class="container mx-auto items-center w-4/5">
+        <div id="indicators-carousel" class="relative" data-carousel="static">
+            <div
+              class="overflow-hidden relative h-48 rounded-lg sm:h-64 xl:h-80 2xl:h-96"
             >
-          </p>
-        </div>
+              <div
+                class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
+                data-carousel-item="active"
+              >
+                <img
+                  src="img/modulo/1.png"
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                  alt="..."
+                />
+              </div>
+    
+              <div
+                class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
+                data-carousel-item=""
+              >
+                <img
+                  src="img/header.png"
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                  alt="..."
+                />
+              </div>
+    
+              <div
+                class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
+                data-carousel-item=""
+              >
+                <img
+                  src="img/modulo/1.png"
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                  alt="..."
+                />
+              </div>
+    
+              <div
+                class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
+                data-carousel-item=""
+              >
+                <img
+                  src="img/modulo/1.png"
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                  alt="..."
+                />
+              </div>
+    
+              <div
+                class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
+                data-carousel-item=""
+              >
+                <img
+                  src="img/modulo/1.png"
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                  alt="..."
+                />
+              </div>
+            </div>
+    
+            <div
+              class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2"
+            >
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full bg-white dark:bg-gray-800"
+                aria-current="true"
+                aria-label="Slide 1"
+                data-carousel-slide-to="0"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                aria-current="false"
+                aria-label="Slide 2"
+                data-carousel-slide-to="1"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                aria-current="false"
+                aria-label="Slide 3"
+                data-carousel-slide-to="2"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                aria-current="false"
+                aria-label="Slide 4"
+                data-carousel-slide-to="3"
+              ></button>
+              <button
+                type="button"
+                class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
+                aria-current="false"
+                aria-label="Slide 5"
+                data-carousel-slide-to="4"
+              ></button>
+            </div>
+    
+            <button
+              type="button"
+              class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+              data-carousel-prev=""
+            >
+              <span
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+                <span class="hidden">Previous</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+              data-carousel-next=""
+            >
+              <span
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+                <span class="hidden">Next</span>
+              </span>
+            </button>
+          </div>
       </section>
 
       <!-- Work List -->
-      <section>
-        <div class="flex flex-row flex-wrap">
+      <section class="flex justify-center">
+        <div class="flex flex-row flex-wrap justify-center items-center w-5/6">
           <!--Card 1-->
           <div class="p-10">
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
@@ -162,7 +356,7 @@
               <div class="px-6 pt-4 pb-2">
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >#aws</span
+                  >#AWS</span
                 >
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
@@ -170,8 +364,8 @@
                 >
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >#</span
-                >
+                  >#Node</span
+                >                
               </div>
             </div>
           </div>
@@ -182,25 +376,27 @@
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
               <img class="w-full" src="img/etupefacientes.jpg" alt="Mountain" />
               <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">Mountain</div>
+                <div class="font-bold text-xl mb-2">Encuestas</div>
                 <p class="text-gray-700 text-base">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptatibus quia, Nonea! Maiores et perferendis eaque,
-                  exercitationem praesentium nihil.
+                  Sistemas de encuestas donde se obtienen y se procesan los datos, sistema realizado en Laravel, livewire, tailwindcss y Alpine (TALL)
                 </p>
               </div>
               <div class="px-6 pt-4 pb-2">
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >#photography</span
+                  >#Laravel</span
                 >
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >#travel</span
+                  >#Livewire</span
                 >
                 <span
                   class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  >#winter</span
+                  >#TailwindCSS</span
+                >
+                <span
+                  class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                  >#Alpine</span
                 >
               </div>
             </div>
@@ -274,15 +470,15 @@
     <footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
-          <a href="https://flowbite.com" class="flex items-center">
+          <a href="http://portafolio.test" class="flex items-center">
             <img
-              src="/docs/images/logo.svg"
+              src="favicon.ico"
               class="mr-3 h-8"
               alt="FlowBite Logo"
             />
             <span
               class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-              >Flowbite</span
+              >Porfolio's Osquel</span
             >
           </a>
         </div>
@@ -350,12 +546,12 @@
       <div class="sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
           >© 2022
-          <a href="https://flowbite.com" class="hover:underline">Flowbite™</a>.
+          <a href="http://portafolio.test" class="hover:underline">Porfolio's Osquel</a>.
           All Rights Reserved.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
-            href="#"
+            href="https://www.facebook.com/osquel.santistebanarias"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -370,26 +566,9 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-          </a>
+          </a>          
           <a
-            href="#"
-            class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-          >
-            <svg
-              class="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="#"
+            href="https://twitter.com/OsquelSantiste1"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -404,7 +583,7 @@
             </svg>
           </a>
           <a
-            href="#"
+            href="https://github.com/osquelsantisteban"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
@@ -421,7 +600,7 @@
             </svg>
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/osquel-santisteban-b5658b196"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
