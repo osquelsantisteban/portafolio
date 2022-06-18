@@ -1,4 +1,4 @@
-const items = [
+const itemscarousel = [
   {
     position: 0,
     el: document.getElementById("carousel-item-1"),
@@ -57,4 +57,4 @@ const options = {
   },
 };
 
-const carousel = new Carousel(items, options);
+const carousel = new Carousel(itemscarousel, options);
