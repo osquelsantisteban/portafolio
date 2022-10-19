@@ -34,7 +34,7 @@
     }
     </script>
   </head>
-  <body class="flex flex-col  dark:bg-gray-800/50">
+  <body class="flex flex-col dark:bg-gray-800/50">
     <!-- Nav -->
     <nav
       class="bg-gray-200 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800"
@@ -136,12 +136,12 @@
             <li>
               <a
                 href="http://portafolio.test/about.html"
-                class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:amber-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                class="block py-2 pl-3 pr-4 bg-gray-500 rounded text-amber-500 md:bg-transparent md:text-amber-500 md:p-0 dark:text-white"                
                 >About</a
-              >
-            </li>
-            <li>
-              <a
+                >
+              </li>
+              <li>
+                <a
                 href="http://portafolio.test/services.html"
                 class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:amber-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Services</a
@@ -150,7 +150,7 @@
             <li>
               <a
                 href="http://portafolio.test/contact.html"
-                class="block py-2 pl-3 pr-4 bg-gray-500 rounded text-amber-500 md:bg-transparent md:text-amber-500 md:p-0 dark:text-white"
+                class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:amber-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >Contact</a
               >
             </li>
@@ -159,9 +159,46 @@
       </div>
     </nav>
 
-    <main class="">
-      <!-- Curriculum -->
+    <main class="container grid items-center w-full grid-cols-1 p-10 mx-auto md:w-4/5">
+      
+      <!-- About me -->
+      <h2 class="mb-10 text-lg font-bold leading-none tracking-tight text-gray-900 justify-self-center md:text-2xl lg:text-3xl dark:text-white">About me</h2>
+
+      <section class="grid grid-cols-1 gap-5">
+        
+        <!-- Resumen -->
+        <article class="grid grid-cols-1 format lg:format-lg dark:format-invert md:grid-cols-2">
+          <!-- Img -->
+          <figure class="w-auto overflow-hidden h-72"><img src="/img/CRM.png" alt="Image about me"></figure>
+          <!-- Text -->
+          <div class="flex items-center p-5">
+            <h2 class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Hi, I'm software engineer and web development</h2>
+          </div>          
+        </article>
+
+        <!-- Curriculum -->
+        <article class="format lg:format-lg dark:format-invert">
+          <!-- Text -->
+          <div class="p-5">
+            <h2 class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Curriculum</h2>
+            <p class="mb-2 lead dark:text-gray-300">
+              2005 - 2007 Social service of the computer technician in the National Statistics Office. During that period I programmed in Visual Basic and received a course in this same language. I also helped make the website for this entity and attended a Photoshop course to perfect image design work.
+              <br>
+              2005 - 2007 Servicio social del técnico de informática en la Oficina Nacional de Estadística. Durante ese período programé en Visual Basic y recibí curso de este mismo lenguaje. También ayudé a la realización del sitio web de esta entidad y asistí a un curso de Photoshop para perfeccionar el trabajo de diseño de imágenes.
+            </p>
+            <p class="mb-2 lead dark:text-gray-300">
+              Agosto 2009 - mayo 2016, En este período recibí preparación de los framework de desarrollo de Symfony y ExtJS en la UCI, curso de certificación en el gestor de base de datos PostgreSQL dado por el IDI y postgrados en Drupal y en CENTOS impartidos por el IDI y CUBATEL respectivamente. 
+              <br>
+              August 2009 - May 2016, During this period I received preparation for the Symfony and ExtJS development frameworks at the UCI, a certification course in the PostgreSQL database manager given by the IDI and postgraduate courses in Drupal and CENTOS given by the IDI and CUBATEL respectively.
+            </p>
+          </div>          
+        </article>
+
+        
+      
+      </section>
            
+      
     </main>
 
     <!-- Footer -->
