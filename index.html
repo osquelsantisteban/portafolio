@@ -34,16 +34,17 @@
     <script>
           document.addEventListener('alpine:init', () => {
           Alpine.store('lang', {
-              //on: 'en',
+              on: 'en',
   
               langToggle() {
                 console.log(this.on);
                 if(this.on === 'es')
-                this.on = 'en'
+                  this.on = 'en'
                 
                 if(this.on === 'en')
-                this.on = 'es'
-                alert(this.on);
+                  this.on = 'es'
+                console.log(this.on);
+                // alert(this.on);
               }
           })
       });
@@ -136,7 +137,7 @@
             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
             @click="$store.lang.langToggle()"
           >
-            <p x-text="lang"></p>
+            <p x-text="$store.lang.on"></p>
           </button>
           <!-- Lang switcher end -->
 
@@ -383,10 +384,10 @@
       </section>
 
       <!-- Title Section -->
-      <template x-if="lang === 'en'">
+      <template x-if="$store.lang.on === 'en'">
         <h2 x-show="lang" class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Hi, I'm software engineer and web development. And I have collaborated in these projects.</h2>        
       </template>
-      <template x-if="lang === 'es'">
+      <template x-if="$store.lang.on === 'es'">
         <h2 class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Hola, soy Ingeniero Informático y desarrollador Web. Y he colaborado en estos proyecto.</h2>
       </template>
       
