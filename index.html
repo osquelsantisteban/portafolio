@@ -38,7 +38,7 @@
             lang: 'es',
             dark: false,
             
-            langStart: function(){
+            init: function(){
               this.lang = 'es';
               this.dark = true;
             },
@@ -59,53 +59,13 @@
             }
           }
         }
-          /* document.addEventListener('alpine:init', () => {
-          Alpine.store('lang', {
-              on: 'en',
-  
-              langToggle() {
-                console.log(this.on);
-                if(this.on === 'es')
-                  this.on = 'en';
-                
-                if(this.on === 'en')
-                  this.on = 'es';
-                console.log(this.on);
-                // alert(this.on);
-              }
-          })
-      }); */
-      
-      /* Alpine.store(
-        'langs', {
-          langs: 'en',
-      })
-      alert(langs);
-      function langToggle(lang){
-        if(lang === 'es')
-        lang = 'en'
-        
-        if(lang === 'en')
-        lang = 'es'
-        alert(lang);
-      } */
-
-      /* document.addEventListener('alpine:init', () => { 
-          Alpine.data('lang', () => ({
-              lang: 'en',
-   
-              langToggle() {
-                  alert('Hi');
-              }
-          }))
-      })*/
   </script>
 
     <!-- Carrusel -->
     <script src="js/carrusel.js"></script>
 
   </head>
-  <body class="flex flex-col dark:bg-gray-800/50" x-data="main()" x-init="langStart()">
+  <body class="flex flex-col dark:bg-gray-800/50" x-data="main()" x-init="init()">
 
     
     <!-- Nav -->
