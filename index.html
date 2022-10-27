@@ -32,22 +32,49 @@
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
     ></script>
     <script>
-          document.addEventListener('alpine:init', () => {
+      
+        function main(){
+          return {
+            lang: 'es',
+            dark: false,
+            
+            langStart: function(){
+              this.lang = 'es';
+              this.dark = true;
+            },
+
+            langToggle: function(){
+
+              // Cambio a Ingles
+              if(this.lang === 'es'){
+                this.lang = 'en'; 
+                return; 
+              }
+              
+              // Cambio a Español
+              if(this.lang === 'en'){
+                this.lang = 'es'; 
+                return; 
+              }
+            }
+          }
+        }
+          /* document.addEventListener('alpine:init', () => {
           Alpine.store('lang', {
               on: 'en',
   
               langToggle() {
                 console.log(this.on);
                 if(this.on === 'es')
-                  this.on = 'en'
+                  this.on = 'en';
                 
                 if(this.on === 'en')
-                  this.on = 'es'
+                  this.on = 'es';
                 console.log(this.on);
                 // alert(this.on);
               }
           })
-      });
+      }); */
       
       /* Alpine.store(
         'langs', {
@@ -78,7 +105,7 @@
     <script src="js/carrusel.js"></script>
 
   </head>
-  <body class="flex flex-col dark:bg-gray-800/50" x-data="{ lang: 'en' }">
+  <body class="flex flex-col dark:bg-gray-800/50" x-data="main()" x-init="langStart()">
 
     
     <!-- Nav -->
@@ -135,9 +162,9 @@
             id="lang-toggle"
             type="button"
             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-            @click="$store.lang.langToggle()"
+            @click="langToggle()"
           >
-            <p x-text="$store.lang.on"></p>
+            <p x-text="lang"></p>
           </button>
           <!-- Lang switcher end -->
 
@@ -384,10 +411,10 @@
       </section>
 
       <!-- Title Section -->
-      <template x-if="$store.lang.on === 'en'">
+      <template x-if="lang === 'en'">
         <h2 x-show="lang" class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Hi, I'm software engineer and web development. And I have collaborated in these projects.</h2>        
       </template>
-      <template x-if="$store.lang.on === 'es'">
+      <template x-if="lang === 'es'">
         <h2 class="mb-4 text-lg leading-none tracking-tight text-gray-900 lg:text-2xl dark:text-white">Hola, soy Ingeniero Informático y desarrollador Web. Y he colaborado en estos proyecto.</h2>
       </template>
       
