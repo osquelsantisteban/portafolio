@@ -31,35 +31,8 @@
       defer
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
     ></script>
-    <script>
-      
-        function main(){
-          return {
-            lang: 'es',
-            dark: false,
-            
-            // Inicializacion
-            init: function(){
-              this.lang = 'es';
-              this.dark = true;
-            },
 
-            // Cambio a Ingles/Español
-            langToggle: function(){
-
-              if(this.lang === 'es'){
-                this.lang = 'en'; 
-                return; 
-              }
-              
-              if(this.lang === 'en'){
-                this.lang = 'es'; 
-                return; 
-              }
-            }
-          }
-        }
-  </script>
+    <script src="js/alpine.js"></script>
 
     <!-- Carrusel -->
     <script src="js/carrusel.js"></script>
